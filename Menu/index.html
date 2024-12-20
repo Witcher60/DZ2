@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню гри</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="menu">
+        <button class="menu-button" onclick="showMessage('Знаходиться в розробці')">НОВА ГРА</button>
+        <button class="menu-button" onclick="showMessage('Знаходиться в розробці')">ЗАВАНТАЖИТИ ГРУ</button>
+        <button class="menu-button" onclick="showMessage('Знаходиться в розробці')">НАЛАШТУВАННЯ</button>
+        <button class="menu-button about-button" onclick="showAbout()">ПРО АВТОРА</button>
+        <button class="menu-button exit-button" onclick="showExitModal()">ВИХІД</button>
+    </div>
+
+    <!-- Вікно "Про автора" -->
+    <div id="about-modal" class="modal">
+        <div class="modal-content">
+            <p><strong>Veyronix Studios</strong><br>Інноваційна студія розробки ігор. Всі права захищено!</p>
+            <button onclick="closeModal('about-modal')">Закрити</button>
+        </div>
+    </div>
+
+    <!-- Вікно підтвердження виходу -->
+    <div id="exit-modal" class="modal">
+        <div class="modal-content">
+            <p>Ви точно хочете це зробити?</p>
+            <button onclick="closePage()">Так</button>
+            <button onclick="closeModal('exit-modal')">Ні</button>
+        </div>
+    </div>
+
+    <!-- Вікно для інших кнопок -->
+    <div id="message-modal" class="modal">
+        <div class="modal-content">
+            <p id="message-text"></p>
+            <button onclick="closeModal('message-modal')">Закрити</button>
+        </div>
+    </div>
+
+    <script>
+        function showAbout() {
+            document.getElementById('about-modal').style.display = 'block';
+        }
+
+        function showExitModal() {
+            document.getElementById('exit-modal').style.display = 'block';
+        }
+
+        function showMessage(message) {
+            document.getElementById('message-text').innerText = message;
+            document.getElementById('message-modal').style.display = 'block';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        function closePage() {
+            window.close();
+        }
+    </script>
+</body>
+</html>
